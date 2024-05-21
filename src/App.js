@@ -1,53 +1,19 @@
-import React from 'react';
-import Comp from './Component/Comp';
-import './Component/style.css';
-import { useState } from 'react';
-
-
-
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Main from "./Component/Main";
+import Home from "./Component/Home";
+import Game from "./Component/Game";
 
 function App() {
-  
-  const [count, setCount] = useState(0);
-   
-  const [colour,setColour] = useState([
-    ["", "", "", ""],
-    ["", "", "", ""],
-    ["", "", "", ""],
-    ["", "", "", ""],
-  ]
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/Main" element={<Main />} />
+        <Route path="/Gameover" element={<Game />} />
+      </Routes>
+    </BrowserRouter>
   );
-  const [vari,setVari]= useState("PLAYER A TURN");
-
-
-  const board=[
-  <Comp  ind={0} vari={vari} setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour}  />,
-  <Comp  ind={1} vari={vari} setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour}  />,
-  <Comp ind={2} vari={vari} setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour} />,
-  <Comp ind={3} vari={vari} setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour} />,
-  <Comp ind={4} vari={vari}setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour} />,
-  <Comp ind={5} vari={vari}setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour} />,
-  <Comp ind={6} vari={vari}setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour} />,
-  <Comp ind={7} vari={vari}setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour} />,
-  <Comp ind={8} vari={vari}setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour}  />,
-  <Comp ind={9} vari={vari}setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour} />,
-  <Comp ind={10} vari={vari}setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour} />,
-  <Comp ind={11} vari={vari}setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour} />,
-  <Comp ind={12} vari={vari}setVari={setVari}count={count} setCount={setCount}colour={colour} setColour={setColour} />,
-  <Comp ind={13} vari={vari}setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour}  />,
-  <Comp ind={14} vari={vari}setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour} />,
-  <Comp ind={15} vari={vari}setVari={setVari}count={count} setCount={setCount} colour={colour} setColour={setColour} />,
-  ]
-  return ( 
-  <> 
-  
-  <div id="dis">
-{board}
-  </div>
-  <div id="box1">{vari}</div>
-
-  </>
-     );
 }
 
 export default App;
