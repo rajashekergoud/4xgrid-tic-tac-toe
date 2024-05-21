@@ -19,7 +19,7 @@ function Comp(props) {
   let tempColour = [...colour];
   const checkWin = () => {
     if (checkHorizontalWin() || checkVerticalWin() || checkDiagonalWin()) {
-      if (tempColour[i][j] == "#c4a35a") {
+      if (tempColour[i][j] === "#c4a35a") {
         setBoxvari(`${vari2} won the match`);
         navigate("/Gameover", { state: { winner: vari2 } });
       } else {
@@ -27,17 +27,17 @@ function Comp(props) {
         navigate("/Gameover", { state: { winner: vari1 } });
       }
     }
-    if (count == 15) {
+    if (count === 15) {
       navigate("/Gameover");
     }
   };
   const checkHorizontalWin = () => {
     for (let i = 0; i < 4; i++) {
       if (
-        tempColour[i][0] != "" &&
-        tempColour[i][0] == tempColour[i][1] &&
-        tempColour[i][0] == tempColour[i][2] &&
-        tempColour[i][0] == tempColour[i][3]
+        tempColour[i][0] !== "" &&
+        tempColour[i][0] === tempColour[i][1] &&
+        tempColour[i][0] === tempColour[i][2] &&
+        tempColour[i][0] === tempColour[i][3]
       ) {
         return true;
       }
@@ -48,10 +48,10 @@ function Comp(props) {
   const checkVerticalWin = () => {
     for (let j = 0; j < 4; j++) {
       if (
-        tempColour[0][j] != "" &&
-        tempColour[0][j] == tempColour[1][j] &&
-        tempColour[0][j] == tempColour[2][j] &&
-        tempColour[0][j] == tempColour[3][j]
+        tempColour[0][j] !== "" &&
+        tempColour[0][j] === tempColour[1][j] &&
+        tempColour[0][j] === tempColour[2][j] &&
+        tempColour[0][j] === tempColour[3][j]
       ) {
         return true;
       }
@@ -61,25 +61,25 @@ function Comp(props) {
 
   const checkDiagonalWin = () => {
     if (
-      tempColour[0][0] != "" &&
-      tempColour[0][0] == tempColour[1][1] &&
-      tempColour[0][0] == tempColour[2][2] &&
-      tempColour[0][0] == tempColour[3][3]
+      tempColour[0][0] !== "" &&
+      tempColour[0][0] === tempColour[1][1] &&
+      tempColour[0][0] === tempColour[2][2] &&
+      tempColour[0][0] === tempColour[3][3]
     ) {
       return true;
     }
     if (
-      tempColour[3][0] != "" &&
-      tempColour[3][0] == tempColour[2][1] &&
-      tempColour[3][0] == tempColour[1][2] &&
-      tempColour[3][0] == tempColour[0][3]
+      tempColour[3][0] !== "" &&
+      tempColour[3][0] === tempColour[2][1] &&
+      tempColour[3][0] === tempColour[1][2] &&
+      tempColour[3][0] === tempColour[0][3]
     ) {
       return true;
     }
     return false;
   };
   const handleColour = () => {
-    if (tempColour[i][j] != "") return;
+    if (tempColour[i][j] !== "") return;
     setCount((prevCount) => prevCount + 1);
     if (count % 2 === 0) {
       tempColour[i][j] = "#00203FFF";
