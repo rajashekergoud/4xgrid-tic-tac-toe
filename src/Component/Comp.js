@@ -7,7 +7,6 @@ function Comp(props) {
     count,
     vari1,
     vari2,
-    boxvari,
     setBoxvari,
     setCount,
     colour,
